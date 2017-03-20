@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=no">
+	<title>PinchZoom</title>
+	<link rel="stylesheet" type="text/css" href="resources/extjs-theme-crisp.css">
+	<script type="text/javascript" src="packages/ext-all.js"></script>
+	<script type="text/javascript" src="packages/PinchZoom.js"></script>
+	<style type="text/css">
+		.pinchzoom {
+		    position: absolute;
+		    min-width: 10px;
+		    min-height: 10px;
+		    line-height: 400%;
+		    text-align: center;
+		    vertical-align: center;
+		    color: white;
+		    opacity: 0.8;
+		    background-color: #314a6a;
+		    border: 2px solid #4e91e3;
+		    cursor: default;
+		    -webkit-user-select: none;
+		    -webkit-touch-callout: none !important;
+		    transform-origin: left top 0px;
+		}
+	</style>
+</head>
+<body>	
+</body>
+	<script type="text/javascript">
+		Ext.onReady(function() {
+
+			Ext.define('MainController', {
+				extend: 'Ext.app.ViewController',
+				alias: 'controller.main',
+
+				onClickCreateBtn: function () {
+					var container = Ext.getCmp('containerpanel');
+					var component = Ext.create({
+						xtype: 'pinchzoom',
+			            parentDom: container,
+			            name: 'PinchZoom',
+			            x: 100,
+			            y: 100,
+			            width: 200,
+			            height: 200
+					}).show();
+
+					container.add(component);
+				},
+
+				onClickClearBtn: function () {
+					Ext.getCmp('containerpanel').removeAll();
+				}
+
+			});
+			
+			Ext.create('Ext.container.Viewport', {
+				bodyPadding: 25,
+				controller: 'main',
+				layout: 'fit',
+				items: [{
+					id: 'containerpanel',
+					title: 'PinchZoom',
+					xtype: 'panel',
+					tbar: [{
+						text: 'Create',
+						handler: 'onClickCreateBtn'
+					}, {
+						text: 'Clear',
+						handler: 'onClickClearBtn'
+					}]
+				}]
+			});
+		});
+	</script>	
+
+	<script type="text/javascript" src="packages/touch-emulator.js"></script>
+	<script type="text/javascript">
+		// TouchEmulator();
+	</script>
+	<script type="text/javascript" src="packages/jquery.min.js"></script>
+	<script type="text/javascript" src="packages/hammer.min.js"></script>
+</html>
