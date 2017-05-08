@@ -4,8 +4,8 @@ PinchZoom
 PinchZoom-a custom ExtJS component.
 PinchZoom-一个ExtJS自定义组件，用作移动端Pinch手势对组件的缩放，同时也可以组件的移动，解决了ExtJS多焦点touch，组件会再多个焦点之间来回摆动的BUG。支持chorme，IE8+，FireFox，Safari浏览器。
 
-----------
-
+### 在线deom地址
+[在线demo](https://todayqq.github.io/PinchZoom/ "点击跳转")
 
 ### Resource
 
@@ -13,7 +13,6 @@ PinchZoom-一个ExtJS自定义组件，用作移动端Pinch手势对组件的缩
  - ExtJS-6.0+
 
 
-----------
 
 
 ### Examples code
